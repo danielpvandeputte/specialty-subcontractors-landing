@@ -282,19 +282,21 @@ p:last-child {
   margin: 0;
   overflow: hidden;
   background: var(--paper);
-  /* offset on desktop later */
 }
 
 .problem-photo img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  max-height: 22rem;
+  aspect-ratio: 5 / 4;
   object-fit: cover;
+  object-position: center 35%;
 }
 
 /* Offer — stacked editorial list, not SaaS cards */
 .offer {
   padding-block: var(--space-xl);
   background: var(--cream);
+  border-top: 1px solid var(--paper);
 }
 
 .offer-layout {
@@ -618,11 +620,12 @@ p:last-child {
   }
 
   .problem-photo {
-    margin-top: 3.5rem;
+    margin-top: 0;
   }
 
   .problem-photo img {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 5 / 4;
+    max-height: 26rem;
   }
 
   .offer-layout {
