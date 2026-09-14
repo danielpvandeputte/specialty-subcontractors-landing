@@ -2,7 +2,7 @@
 
 Static, mobile-first landing page for Van De Putte Advisors (commercial & specialty subcontractor M&A).
 
-Editorial boutique advisory feel — warm cream paper, ink text, deep olive primary CTAs, brass accents — more handmade magazine than SaaS template. Construction / specialty-trade photography; real headshots for Paul and Daniel. Cloned visual system from `/workspace/job-shop-landing/`.
+Private Atelier redesign — cream paper, ink text, deep olive primary CTAs, brass photo frames and chapter labels. Construction / specialty-trade photography; real headshots for Paul and Daniel.
 
 ## How to open
 
@@ -28,9 +28,13 @@ No build step. CSS is in `styles.css`. Form submit is stubbed in a small inline 
 
 ## Design notes
 
-- Section titles are plain H2s (no ALL-CAPS eyebrow labels)
-- Primary solid buttons only in hero + form submit; mid-page CTAs are underlined text links (varied wording — not repeating “Talk with us confidentially”)
-- Offer section uses a ruled editorial list, not numbered SaaS cards
+- Sticky cream header: brand text only (no brass/gold circle mark) + “Talk with us”
+- Chapter labels: Private counsel / Where value leaks / The work / Fit / Let’s talk
+- Hero photo sits in a brass frame with caption “Succession, done properly”
+- Problem + What we do share cream-deep `#F0EAD9`
+- After bios + close line: chapter-break link “Reach out to Paul and Daniel” (no arrow, no “Next” label)
+- Offer CTA is dark/black ink, not white
+- Primary solid buttons only in hero + form submit; mid-page CTAs are underlined text links
 - Headshots top-aligned (`object-position: center top`) with equal 4:5 crop
 - Asymmetric layouts on tablet+ (offset bios, staggered photos)
 

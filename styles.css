@@ -1,8 +1,9 @@
-/* Editorial boutique advisory — warm cream paper, handmade feel */
+/* Private Atelier — cream paper, ink, brass frames, chapter labels */
 
 :root {
   --cream: #F7F3EA;
-  --parchment: #EFE9DD;
+  --cream-deep: #F0EAD9;
+  --parchment: #F0EAD9;
   --paper: #E2DAC8;
   --ink: #1F1C18;
   --ink-soft: #3D3830;
@@ -40,9 +41,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.7;
   color: var(--ink-soft);
-  background:
-    radial-gradient(ellipse at 12% 0%, rgba(184, 146, 74, 0.06), transparent 42%),
-    var(--cream);
+  background: var(--cream);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -57,14 +56,13 @@ img {
   margin-inline: auto;
 }
 
-/* Header — quiet rule, not product chrome */
+/* Header — cream bar, brand text only (no circle mark) */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: color-mix(in srgb, var(--cream) 88%, transparent);
-  border-bottom: 1px solid var(--paper);
-  backdrop-filter: blur(8px);
+  background: var(--cream);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 22%, var(--paper));
 }
 
 .site-header .wrap {
@@ -142,9 +140,20 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* Hero — asymmetric, editorial */
+.section-label {
+  margin: 0 0 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+}
+
+/* Hero — label, copy, brass-framed photo + caption */
 .hero {
   padding-block: var(--space-lg) var(--space-xl);
+  background: var(--cream);
 }
 
 .hero-grid {
@@ -163,17 +172,26 @@ p:last-child {
 
 .hero-photo {
   margin: 0;
-  overflow: hidden;
-  background: var(--parchment);
-  /* slight offset / uneven crop feel */
-  transform: rotate(-0.4deg);
-  box-shadow: 0 18px 48px rgba(31, 28, 24, 0.1);
+  padding: 0.7rem 0.7rem 0.85rem;
+  background: var(--cream);
+  border: 1px solid var(--brass);
+  box-shadow: 0 18px 48px rgba(31, 28, 24, 0.08);
 }
 
 .hero-photo img {
   width: 100%;
   aspect-ratio: 5 / 4;
   object-fit: cover;
+}
+
+.hero-photo figcaption {
+  margin: 0.7rem 0.15rem 0.1rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
 /* Primary button — hero + form only */
@@ -237,14 +255,25 @@ p:last-child {
   outline-offset: 4px;
 }
 
+.text-link-ink {
+  color: var(--ink);
+  border-bottom-color: color-mix(in srgb, var(--ink) 38%, transparent);
+}
+
+.text-link-ink:hover,
+.text-link-ink:focus-visible {
+  color: #000;
+  border-bottom-color: #000;
+}
+
 .section-cta {
   margin-top: var(--space-lg);
 }
 
-/* Problem */
+/* Problem — cream-deep band, same as The work */
 .problem {
   padding-block: var(--space-xl);
-  background: var(--parchment);
+  background: var(--cream-deep);
 }
 
 .problem-grid {
@@ -282,7 +311,6 @@ p:last-child {
   margin: 0;
   overflow: hidden;
   background: var(--paper);
-  /* offset on desktop later */
 }
 
 .problem-photo img {
@@ -293,10 +321,10 @@ p:last-child {
   object-position: center;
 }
 
-/* Offer — stacked editorial list, not SaaS cards */
+/* Offer / The work — cream-deep, dark ink CTA */
 .offer {
   padding-block: var(--space-xl);
-  background: var(--cream);
+  background: var(--cream-deep);
 }
 
 .offer-layout {
@@ -350,10 +378,10 @@ p:last-child {
   flex-shrink: 0;
 }
 
-/* Photo band — no gradient chrome; caption-style CTA below */
+/* Photo band */
 .photo-band {
   margin: 0;
-  padding: 0 0 var(--space-md);
+  padding: 0;
   background: var(--ink);
 }
 
@@ -369,23 +397,7 @@ p:last-child {
   opacity: 0.92;
 }
 
-.photo-band-cta {
-  padding-block: var(--space-md) var(--space-sm);
-  margin: 0 auto;
-}
-
-.text-link-on-dark {
-  color: #E8DFC8;
-  border-bottom-color: color-mix(in srgb, #E8DFC8 45%, transparent);
-}
-
-.text-link-on-dark:hover,
-.text-link-on-dark:focus-visible {
-  color: #FFFEF8;
-  border-bottom-color: #FFFEF8;
-}
-
-/* Who we are — asymmetric bios */
+/* Who we are — bios, close, then chapter break (no arrow, no Next label) */
 .who {
   padding-block: var(--space-xl);
   background: var(--cream);
@@ -433,10 +445,38 @@ p:last-child {
   line-height: 1.4;
 }
 
+.chapter-break {
+  margin: var(--space-lg) 0 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid color-mix(in srgb, var(--brass) 35%, var(--paper));
+}
+
+.chapter-break a {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 0.08rem;
+}
+
+.chapter-break a:hover,
+.chapter-break a:focus-visible {
+  color: var(--brass-deep);
+  border-bottom-color: var(--brass-deep);
+}
+
+.chapter-break a:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 4px;
+}
+
 /* Audience */
 .audience {
   padding-block: var(--space-xl);
-  background: var(--parchment);
+  background: var(--cream);
 }
 
 .audience-inner {
@@ -466,7 +506,7 @@ p:last-child {
 /* Contact */
 .contact {
   padding-block: var(--space-xl);
-  background: var(--cream);
+  background: var(--cream-deep);
 }
 
 .contact-wrap {
@@ -559,7 +599,7 @@ p:last-child {
 .site-footer {
   padding-block: var(--space-lg);
   border-top: 1px solid var(--paper);
-  background: var(--parchment);
+  background: var(--cream);
 }
 
 .footer-inner {
@@ -620,7 +660,7 @@ p:last-child {
   }
 
   .problem-photo {
-    margin-top: 0.35rem;
+    margin-top: 0;
   }
 
   .problem-photo img {
@@ -713,9 +753,5 @@ p:last-child {
   .field select,
   .field textarea {
     transition: none;
-  }
-
-  .hero-photo {
-    transform: none;
   }
 }
