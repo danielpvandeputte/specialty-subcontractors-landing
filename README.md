@@ -30,9 +30,9 @@ No build step. CSS is in `styles.css`. Form submit is stubbed in a small inline 
 
 - Sticky cream header: brand text only (no brass/gold circle mark) + “Talk with us”
 - Chapter labels: Private counsel / Where value leaks / The work / Fit / Let’s talk
-- Hero photo sits in a brass frame with caption “Succession, done properly”
+- Hero photo sits in a thick `.brass-frame` (0.95rem brass padding/gradient); caption “Succession, done properly” sits underneath the frame
 - Problem + What we do share cream-deep `#F0EAD9`
-- After bios + close line: chapter-break link “Reach out to Paul and Daniel” (no arrow, no “Next” label)
+- After bios + close line: centered chapter-break “Reach out to Paul and Daniel” (no arrow) in the middle of a horizontal rule
 - Offer CTA is dark/black ink, not white
 - Primary solid buttons only in hero + form submit; mid-page CTAs are underlined text links
 - Headshots top-aligned (`object-position: center top`) with equal 4:5 crop

@@ -172,20 +172,33 @@ p:last-child {
 
 .hero-photo {
   margin: 0;
-  padding: 0.7rem 0.7rem 0.85rem;
-  background: var(--cream);
-  border: 1px solid var(--brass);
-  box-shadow: 0 18px 48px rgba(31, 28, 24, 0.08);
 }
 
-.hero-photo img {
+.brass-frame {
+  padding: 0.95rem;
+  background:
+    linear-gradient(
+      145deg,
+      #e8d08a 0%,
+      var(--brass) 28%,
+      var(--brass-deep) 52%,
+      var(--brass) 76%,
+      #d4b056 100%
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 244, 210, 0.3),
+    0 18px 40px rgba(31, 28, 24, 0.12);
+}
+
+.brass-frame img {
+  display: block;
   width: 100%;
   aspect-ratio: 5 / 4;
   object-fit: cover;
 }
 
 .hero-photo figcaption {
-  margin: 0.7rem 0.15rem 0.1rem;
+  margin: 0.75rem 0 0;
   font-family: var(--serif);
   font-style: italic;
   font-size: 1rem;
@@ -447,28 +460,46 @@ p:last-child {
 
 .chapter-break {
   margin: var(--space-lg) 0 0;
-  padding-top: var(--space-md);
-  border-top: 1px solid color-mix(in srgb, var(--brass) 35%, var(--paper));
 }
 
-.chapter-break a {
+.chapter-break-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.chapter-rule {
+  flex: 1;
+  display: block;
+  height: 1px;
+  min-width: 1.5rem;
+  background: color-mix(in srgb, var(--brass) 48%, var(--paper));
+}
+
+.chapter-label {
+  flex: 0 1 auto;
+  margin: 0;
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-style: italic;
   font-weight: 500;
   color: var(--ink);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.chapter-label-link {
   text-decoration: none;
-  border-bottom: 1px solid var(--brass);
-  padding-bottom: 0.08rem;
+  border-bottom: none;
 }
 
-.chapter-break a:hover,
-.chapter-break a:focus-visible {
+.chapter-label-link:hover,
+.chapter-label-link:focus-visible {
   color: var(--brass-deep);
-  border-bottom-color: var(--brass-deep);
 }
 
-.chapter-break a:focus-visible {
+.chapter-label-link:focus-visible {
   outline: 2px solid var(--brass);
   outline-offset: 4px;
 }
@@ -649,7 +680,7 @@ p:last-child {
     margin-left: -0.5rem;
   }
 
-  .hero-photo img {
+  .brass-frame img {
     aspect-ratio: 4 / 5;
   }
 
@@ -738,6 +769,13 @@ p:last-child {
 
   .hero-copy .subhead {
     max-width: 34ch;
+  }
+}
+
+@media (max-width: 420px) {
+  .chapter-label {
+    white-space: normal;
+    font-size: 1rem;
   }
 }
 
