@@ -353,6 +353,10 @@ p:last-child {
   margin-bottom: 0;
 }
 
+.offer-lead.offer-succession {
+  margin-top: 1.3rem;
+}
+
 .how-list {
   display: grid;
   gap: 0;
