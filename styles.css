@@ -421,6 +421,13 @@ p:last-child {
   display: grid;
   gap: var(--space-xl);
   margin-bottom: var(--space-lg);
+  align-items: stretch;
+}
+
+.bio.paper-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .paper-panel {
@@ -731,7 +738,7 @@ p:last-child {
   .bios {
     grid-template-columns: 1fr 1fr;
     gap: 3.5rem;
-    align-items: start;
+    align-items: stretch;
   }
 
   .bio-paul,
