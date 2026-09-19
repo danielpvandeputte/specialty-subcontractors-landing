@@ -170,39 +170,16 @@ p:last-child {
   line-height: 1.55;
 }
 
-a.footnote-ref,
 .footnote-ref {
-  margin-left: 0.15em;
-  padding: 0 0.1em;
-  font-size: 0.78em;
+  margin-left: 0.12em;
+  font-size: 0.45em;
   font-weight: 700;
   font-style: normal;
   line-height: 1;
   vertical-align: super;
+  color: var(--ink);
   text-decoration: none;
-  color: var(--brass-deep);
-  border-bottom: none;
-}
-
-a.footnote-ref sup,
-.footnote-ref sup {
-  font-size: 1em;
-  font-weight: inherit;
-  line-height: inherit;
-  vertical-align: baseline;
-}
-
-a.footnote-ref:hover,
-.footnote-ref:hover,
-a.footnote-ref:focus-visible,
-.footnote-ref:focus-visible {
-  color: var(--brass);
-}
-
-a.footnote-ref:focus-visible,
-.footnote-ref:focus-visible {
-  outline: 2px solid var(--brass);
-  outline-offset: 2px;
+  pointer-events: none;
 }
 
 .hero-photo {
