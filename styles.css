@@ -688,6 +688,12 @@ p:last-child {
   outline: none;
 }
 
+.footer-disclaimer {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
 /* Tablet+ — asymmetry */
 @media (min-width: 720px) {
   .hero-grid {
