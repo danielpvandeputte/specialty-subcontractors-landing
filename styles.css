@@ -489,6 +489,8 @@ p:last-child {
   color: var(--ink);
   max-width: 40ch;
   line-height: 1.4;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .chapter-break {
