@@ -172,12 +172,12 @@ p:last-child {
 
 .footnote-ref {
   margin-left: 0.12em;
-  font-size: 0.45em;
-  font-weight: 700;
+  font-size: 0.28em;
+  font-weight: 400;
   font-style: normal;
   line-height: 1;
   vertical-align: super;
-  color: var(--ink);
+  color: #000;
   text-decoration: none;
   pointer-events: none;
 }
@@ -218,6 +218,7 @@ p:last-child {
   font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 /* Primary button — hero + form only */
