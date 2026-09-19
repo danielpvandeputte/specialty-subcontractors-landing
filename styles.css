@@ -708,8 +708,12 @@ p:last-child {
 
 .footer-disclaimer {
   flex-basis: 100%;
-  font-size: 0.8rem;
+  margin: var(--space-sm) 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  max-width: none;
   line-height: 1.45;
+  text-align: center;
 }
 
 /* Tablet+ — asymmetry */
