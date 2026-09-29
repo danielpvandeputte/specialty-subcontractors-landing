@@ -18,7 +18,7 @@ No build step. CSS is in `styles.css`. Form submit is stubbed in a small inline 
 
 - `index.html` — semantic page structure and copy
 - `styles.css` — cream / ink / olive / brass styles + Newsreader + Source Sans 3
-- `images/` — specialty-trade photos (public-domain welding hero and band, plus Unsplash trade photos) and real founder headshots (`paul.jpg`, `daniel.jpg`)
+- `images/` — specialty-trade photos (Daniel’s commercial-gate hero, public-domain welding photo-band, plus Unsplash trade photos) and real founder headshots (`paul.jpg`, `daniel.jpg`)
 - `README.md` — this file
 
 ## Niche focus
@@ -56,11 +56,11 @@ No build step. CSS is in `styles.css`. Form submit is stubbed in a small inline 
 
 ## Photo credits
 
-The hero and photo-band are a public-domain U.S. Air Force welding photograph. Other trade photos are Unsplash; link back to the photographer when you publish:
+The framed hero is Daniel Van De Putte’s photo of a commercial sliding gate. The photo-band is a public-domain U.S. Air Force welding photograph. Other trade photos are Unsplash; link back to the photographer when you publish:
 
 | File | Source |
 |------|--------|
-| `hero-construction.jpg` | [Wikimedia Commons File:GMAW.welding.af.ncs.jpg](https://commons.wikimedia.org/wiki/File:GMAW.welding.af.ncs.jpg) — U.S. Air Force photo by William M. Plate Jr., public domain |
+| `hero-construction.jpg` | Daniel Van De Putte — commercial sliding gate at a self-storage business |
 | `concrete-work.jpg` | [unsplash.com/photos/photo-1589939705384-5185137a7f0f](https://unsplash.com/photos/photo-1589939705384-5185137a7f0f) |
 | `site-scaffolding.jpg` | Same public-domain GMAW welding photo, cropped 16:9 |
 | `commercial-fitout.jpg` | [unsplash.com/photos/photo-1562259949-e8e7689d7828](https://unsplash.com/photos/photo-1562259949-e8e7689d7828) |
