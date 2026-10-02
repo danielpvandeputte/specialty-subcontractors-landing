@@ -656,13 +656,18 @@ p:last-child {
   border-color: var(--brass);
 }
 
-.form-thanks {
+.form-thanks,
+.form-error {
   margin: 0;
   padding: var(--space-sm) 0;
   border-left: 3px solid var(--brass);
   padding-left: var(--space-md);
   color: var(--ink);
   font-weight: 600;
+}
+
+.form-error {
+  border-left-color: var(--brass-deep);
 }
 
 /* Footer */
