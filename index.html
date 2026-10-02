@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18464047833"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18464047833');
+  </script>
   <title>Subcontractor Advisors | M&amp;A for Under $1M to $10M+ Commercial Trades</title>
   <meta name="description" content="Father-and-son advisors for commercial subcontractors (typically under $1M to $10M+) — fencing, paving, welding, flooring, concrete, glazing, low-voltage, commercial painting. We package WIP and bonding the way buyers underwrite.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -211,7 +219,8 @@
             <textarea id="notes" name="notes" rows="4"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send a confidential note</button>
-          <p id="form-thanks" class="form-thanks" hidden>Thanks — we’ll be in touch.</p>
+          <p id="form-error" class="form-error" role="alert" hidden>Couldn’t send that. Please try again.</p>
+          <p id="form-thanks" class="form-thanks" role="status" hidden>Thanks — we’ll be in touch.</p>
         </form>
       </div>
     </section>
@@ -238,17 +247,99 @@
   -->
 
   <script>
+    var LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyxffKeGya43T_kdwvJK-E5X0qR2BEITL2BSAC6GAv9xx9z7xxIRT9zcCiUBF8WhKia/exec';
+
+    function queryValue(name) {
+      try {
+        return new URLSearchParams(window.location.search).get(name) || '';
+      } catch (err) {
+        return '';
+      }
+    }
+
+    function leadAccepted(text) {
+      if (!text) return false;
+      try {
+        return JSON.parse(text).ok === true;
+      } catch (err) {
+        return /"ok"\s*:\s*true/.test(text);
+      }
+    }
+
+    function leadRejected(text) {
+      if (!text) return false;
+      try {
+        return JSON.parse(text).ok === false;
+      } catch (err) {
+        return /"ok"\s*:\s*false/.test(text);
+      }
+    }
+
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
+      var form = this;
       var name = document.getElementById('name');
       var contact = document.getElementById('contact-info');
+      var thanks = document.getElementById('form-thanks');
+      var errorEl = document.getElementById('form-error');
+      var button = form.querySelector('button[type="submit"]');
+
       if (!name.value.trim() || !contact.value.trim()) {
         name.reportValidity();
         contact.reportValidity();
         return;
       }
-      document.getElementById('form-thanks').hidden = false;
-      this.querySelector('button[type="submit"]').disabled = true;
+      if (form.getAttribute('data-submitting') === 'true') return;
+
+      form.setAttribute('data-submitting', 'true');
+      errorEl.hidden = true;
+      button.disabled = true;
+
+      var payload = {
+        name: name.value.trim(),
+        contact: contact.value.trim(),
+        'trade-type': document.getElementById('trade-type').value,
+        revenue: document.getElementById('revenue').value,
+        notes: document.getElementById('notes').value.trim(),
+        pageUrl: window.location.href,
+        utm_source: queryValue('utm_source'),
+        utm_medium: queryValue('utm_medium'),
+        utm_campaign: queryValue('utm_campaign'),
+        gclid: queryValue('gclid')
+      };
+
+      // text/plain avoids a CORS preflight. Apps Script still receives JSON,
+      // then 302s to an echo URL whose body is {"ok":true}.
+      fetch(LEAD_ENDPOINT, {
+        method: 'POST',
+        redirect: 'follow',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (res.type === 'opaque') return true;
+        return res.text().then(function (text) {
+          if (leadAccepted(text)) return true;
+          if (leadRejected(text)) throw new Error('Lead was rejected');
+          if (res.ok || res.status === 0) return true;
+          throw new Error('Lead submit failed');
+        }, function () {
+          if (res.ok || res.status === 0) return true;
+          throw new Error('Lead submit failed');
+        });
+      }).then(function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18464047833/ONULCLG29f4cENmFrORE',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
+        thanks.hidden = false;
+      }).catch(function () {
+        form.removeAttribute('data-submitting');
+        button.disabled = false;
+        errorEl.hidden = false;
+      });
     });
   </script>
 </body>

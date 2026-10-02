@@ -12,7 +12,7 @@ Open `index.html` in a browser:
 - From this folder: `xdg-open index.html` (Linux) / `open index.html` (macOS), or
 - Serve locally if you prefer: `python3 -m http.server 8080` then visit `http://localhost:8080`
 
-No build step. CSS is in `styles.css`. Form submit is stubbed in a small inline script (`preventDefault` + thank-you message).
+No build step. CSS is in `styles.css`. The contact form POSTs a JSON lead to the live Apps Script endpoint and shows the thank-you message only after that request succeeds. A Google Ads conversion event fires on that success, not on page load.
 
 ## Files
 
