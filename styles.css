@@ -656,18 +656,77 @@ p:last-child {
   border-color: var(--brass);
 }
 
-.form-thanks,
 .form-error {
   margin: 0;
   padding: var(--space-sm) 0;
-  border-left: 3px solid var(--brass);
+  border-left: 3px solid var(--brass-deep);
   padding-left: var(--space-md);
   color: var(--ink);
   font-weight: 600;
 }
 
-.form-error {
-  border-left-color: var(--brass-deep);
+#contact-form.is-success .field,
+#contact-form.is-success > .btn {
+  display: none;
+}
+
+.form-thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.05rem;
+  margin: 0;
+  padding: 0.35rem 0 0.25rem;
+  color: var(--ink);
+}
+
+.form-thanks[hidden] {
+  display: none;
+}
+
+.form-thanks:focus {
+  outline: none;
+}
+
+.form-thanks:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 6px;
+}
+
+.form-thanks-mark {
+  display: block;
+  width: 3.25rem;
+  height: 3.25rem;
+  color: var(--brass);
+}
+
+.form-thanks-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.form-thanks-mark circle {
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.form-thanks-mark path {
+  stroke: var(--olive);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.form-thanks-text {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--ink);
 }
 
 /* Footer */

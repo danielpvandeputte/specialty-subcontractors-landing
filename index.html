@@ -221,7 +221,15 @@
           </div>
           <button type="submit" class="btn btn-primary">Send a confidential note</button>
           <p id="form-error" class="form-error" role="alert" hidden>Couldn’t send that. Please try again.</p>
-          <p id="form-thanks" class="form-thanks" role="status" hidden>Thanks — we’ll be in touch.</p>
+          <div id="form-thanks" class="form-thanks" role="status" tabindex="-1" hidden>
+            <span class="form-thanks-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="22.25"></circle>
+                <path d="M15 25.2 21 31.2 33.5 17.5"></path>
+              </svg>
+            </span>
+            <p class="form-thanks-text">Thanks — we’ll be in touch.</p>
+          </div>
         </form>
       </div>
     </section>
@@ -335,7 +343,9 @@
             'currency': 'USD'
           });
         }
+        form.classList.add('is-success');
         thanks.hidden = false;
+        thanks.focus();
       }).catch(function () {
         form.removeAttribute('data-submitting');
         button.disabled = false;
